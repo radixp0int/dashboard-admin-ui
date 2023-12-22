@@ -28,11 +28,11 @@ export const tokensDark = {
   },
   secondary: {
     // yellow
-    50: "#f0f0f0", // manually adjusted
-    100: "#fff6e0",
-    200: "#ffedc2",
-    300: "#ffe3a3",
-    400: "#ffda85",
+    50: "#e0f0ff", // lightest blue
+    100: "#c2e0ff",
+    200: "#a3d1ff",
+    300: "#85c2ff",
+    400: "#66b3ff",
     500: "#ffd166",
     600: "#cca752",
     700: "#997d3d",
