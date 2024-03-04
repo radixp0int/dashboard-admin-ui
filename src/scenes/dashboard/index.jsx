@@ -65,8 +65,9 @@ const Dashboard = () => {
         <Box>
           <Button
             sx={{
-              backgroundColor: theme.palette.secondary.light,
-              color: theme.palette.background.alt,
+              color: theme.palette.secondary.light,
+              backgroundColor: theme.palette.background.alt,
+              // color: theme.palette.background.alt,
               fontSize: "14px",
               fontWeight: "bold",
               padding: "10px 20px",
@@ -118,6 +119,9 @@ const Dashboard = () => {
           p="1rem"
           borderRadius="0.55rem"
         >
+          <Typography variant="h6" sx={{ color: theme.palette.secondary[100] }}>
+            Overview of Sales
+          </Typography>
           <OverviewChart view="sales" isDashboard={true} />
         </Box>
         <StatBox
@@ -196,8 +200,8 @@ const Dashboard = () => {
             fontSize="0.8rem"
             sx={{ color: theme.palette.secondary[200] }}
           >
-            Breakdown of real states and information via category for revenue
-            made for this year and total sales.
+            Breakdown of information via category for revenue made for this year
+            and total sales.
           </Typography>
         </Box>
       </Box>
