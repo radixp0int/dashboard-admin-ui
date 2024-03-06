@@ -54,18 +54,18 @@ const navItems = [
     text: "Transactions",
     icon: <ReceiptLongOutlined />,
   },
+  // {
+  //   text: "Geography",
+  //   icon: <PublicOutlined />,
+  // },
   {
-    text: "Geography",
-    icon: <PublicOutlined />,
+    text: "Sales",
+    icon: null,
   },
-  // {
-  //   text: "Sales",
-  //   icon: null,
-  // },
-  // {
-  //   text: "Overview",
-  //   icon: <PointOfSaleOutlined />,
-  // },
+  {
+    text: "Overview",
+    icon: <PointOfSaleOutlined />,
+  },
   // {
   //   text: "Daily",
   //   icon: <TodayOutlined />,
@@ -86,10 +86,10 @@ const navItems = [
     text: "Admin",
     icon: <AdminPanelSettingsOutlined />,
   },
-  {
-    text: "Performance",
-    icon: <TrendingUpOutlined />,
-  },
+  // {
+  //   text: "Performance",
+  //   icon: <TrendingUpOutlined />,
+  // },
 ];
 
 const Sidebar = ({
