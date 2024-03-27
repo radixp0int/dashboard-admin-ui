@@ -74,10 +74,10 @@ const navItems = [
   //   text: "Monthly",
   //   icon: <CalendarMonthOutlined />,
   // },
-  // {
-  //   text: "Breakdown",
-  //   icon: <PieChartOutlined />,
-  // },
+  {
+    text: "Breakdown",
+    icon: <PieChartOutlined />,
+  },
   {
     text: "Management",
     icon: null,
@@ -86,10 +86,10 @@ const navItems = [
     text: "Admin",
     icon: <AdminPanelSettingsOutlined />,
   },
-  // {
-  //   text: "Performance",
-  //   icon: <TrendingUpOutlined />,
-  // },
+  {
+    text: "Performance",
+    icon: <TrendingUpOutlined />,
+  },
 ];
 
 const Sidebar = ({
