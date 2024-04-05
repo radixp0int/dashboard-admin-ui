@@ -1,14 +1,14 @@
 import React from "react";
-import { Box, useTheme } from "@mui/material";
+import { Box } from "@mui/material";
 import { useGetUserPerformanceQuery } from "state/api";
 import { useSelector } from "react-redux";
 import { DataGrid } from "@mui/x-data-grid";
 import Header from "components/Header";
 import CustomColumnMenu from "components/DataGridCustomColumnMenu";
 import DataGridCustomToolbar from "components/DataGridCustomToolbar";
+import DataGridTableLayout from "components/DataGridTableLayout";
 
 const Performance = () => {
-  const theme = useTheme();
   const userId = useSelector((state) => state.global.userId);
   const { data, isLoading } = useGetUserPerformanceQuery(userId);
 
@@ -49,36 +49,7 @@ const Performance = () => {
         title="Performance"
         subtitle="Track Affiliate Sales Performance"
       />
-      <Box
-        mt="1rem"
-        height="80vh"
-        sx={{
-          "& .MuiDataGrid-root": {
-            border: "none",
-          },
-          "& .MuiDataGrid-cell": {
-            borderBottom: "none",
-          },
-          "& .MuiDataGrid-columnHeaders": {
-            backgroundColor: theme.palette.background.alt,
-            color: theme.palette.grey[100],
-            typography: theme.typography.h6,
-            borderBottom: "none",
-          },
-          "& .MuiDataGrid-virtualScroller": {
-            backgroundColor: theme.palette.primary.alt,
-          },
-          "& .MuiDataGrid-footerContainer": {
-            backgroundColor: theme.palette.background.alt,
-            color: theme.palette.secondary[100],
-            borderTop: "none",
-          },
-          "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
-            color: `${theme.palette.secondary[200]} !important`,
-            typography: theme.typography.h6,
-          },
-        }}
-      >
+      <DataGridTableLayout>
         <DataGrid
           loading={isLoading || !data}
           getRowId={(row) => row._id}
@@ -89,7 +60,7 @@ const Performance = () => {
             Toolbar: DataGridCustomToolbar,
           }}
         />
-      </Box>
+      </DataGridTableLayout>
     </Box>
   );
 };

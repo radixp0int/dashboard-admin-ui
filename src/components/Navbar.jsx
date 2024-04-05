@@ -22,10 +22,12 @@ import {
   Toolbar,
   Typography,
   useTheme,
+  useMediaQuery,
 } from "@mui/material";
 
 const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
   const dispatch = useDispatch();
+  const isMobileScreen = useMediaQuery("(max-width: 768px)");
   const theme = useTheme();
 
   const [anchorElement, setAnchorElement] = useState(null);
@@ -56,7 +58,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
             backgroundColor={theme.palette.background.alt}
             borderRadius="9px"
             gap="3rem"
-            p="0.1rem 1.5rem"
+            p="0.1rem 0.5rem 0.1rem 1.5rem"
           >
             <InputBase placeholder="Search..." />
             <IconButton>
@@ -66,7 +68,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
         </FlexBetween>
 
         {/* RIGHT SIDE */}
-        <FlexBetween gap="1.5rem">
+        <FlexBetween gap={isMobileScreen ? "0.25rem" : "1.5rem"}>
           <IconButton onClick={() => dispatch(setMode())}>
             {theme.palette.mode === "dark" ? (
               <DarkModeOutlined sx={{ fontSize: "25px" }} />
@@ -123,7 +125,9 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
               onClose={handleClose}
               anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
             >
-              <MenuItem onClick={handleClose} sx={{width: "200px"}}>Log Out</MenuItem>
+              <MenuItem onClick={handleClose} sx={{ width: "200px" }}>
+                Log Out
+              </MenuItem>
             </Menu>
           </FlexBetween>
         </FlexBetween>
