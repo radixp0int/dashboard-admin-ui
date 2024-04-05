@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { DataGrid } from "@mui/x-data-grid";
 import Header from "components/Header";
 import CustomColumnMenu from "components/DataGridCustomColumnMenu";
+import DataGridCustomToolbar from "components/DataGridCustomToolbar";
 
 const Performance = () => {
   const theme = useTheme();
@@ -45,12 +46,12 @@ const Performance = () => {
   return (
     <Box m="1.5rem 2.5rem">
       <Header
-        title="PERFORMANCE"
+        title="Performance"
         subtitle="Track Affiliate Sales Performance"
       />
       <Box
-        mt="40px"
-        height="75vh"
+        mt="1rem"
+        height="80vh"
         sx={{
           "& .MuiDataGrid-root": {
             border: "none",
@@ -60,11 +61,12 @@ const Performance = () => {
           },
           "& .MuiDataGrid-columnHeaders": {
             backgroundColor: theme.palette.background.alt,
-            color: theme.palette.secondary[100],
+            color: theme.palette.grey[100],
+            typography: theme.typography.h6,
             borderBottom: "none",
           },
           "& .MuiDataGrid-virtualScroller": {
-            backgroundColor: theme.palette.primary.light,
+            backgroundColor: theme.palette.primary.alt,
           },
           "& .MuiDataGrid-footerContainer": {
             backgroundColor: theme.palette.background.alt,
@@ -73,6 +75,7 @@ const Performance = () => {
           },
           "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
             color: `${theme.palette.secondary[200]} !important`,
+            typography: theme.typography.h6,
           },
         }}
       >
@@ -83,6 +86,7 @@ const Performance = () => {
           columns={columns}
           components={{
             ColumnMenu: CustomColumnMenu,
+            Toolbar: DataGridCustomToolbar,
           }}
         />
       </Box>

@@ -57,6 +57,7 @@ const Transactions = () => {
     <Box m="1.5rem 2.5rem">
       <Header title="Transactions" subtitle="List of Transactions" />
       <Box
+        mt="1rem"
         height="80vh"
         sx={{
           "& .MuiDataGrid-root": {
@@ -67,11 +68,12 @@ const Transactions = () => {
           },
           "& .MuiDataGrid-columnHeaders": {
             backgroundColor: theme.palette.background.alt,
-            color: theme.palette.secondary[100],
+            color: theme.palette.grey[100],
+            typography: theme.typography.h6,
             borderBottom: "none",
           },
           "& .MuiDataGrid-virtualScroller": {
-            backgroundColor: theme.palette.primary.light,
+            backgroundColor: theme.palette.primary.alt,
           },
           "& .MuiDataGrid-footerContainer": {
             backgroundColor: theme.palette.background.alt,
@@ -80,6 +82,7 @@ const Transactions = () => {
           },
           "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
             color: `${theme.palette.secondary[200]} !important`,
+            typography: theme.typography.h6,
           },
         }}
       >

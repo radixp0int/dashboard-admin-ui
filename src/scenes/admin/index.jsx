@@ -65,11 +65,12 @@ const Admin = () => {
           },
           "& .MuiDataGrid-columnHeaders": {
             backgroundColor: theme.palette.background.alt,
-            color: theme.palette.secondary[100],
+            color: theme.palette.grey[100],
+            typography: theme.typography.h6,
             borderBottom: "none",
           },
           "& .MuiDataGrid-virtualScroller": {
-            backgroundColor: theme.palette.primary.light,
+            backgroundColor: theme.palette.primary.alt,
           },
           "& .MuiDataGrid-footerContainer": {
             backgroundColor: theme.palette.background.alt,
@@ -78,6 +79,7 @@ const Admin = () => {
           },
           "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
             color: `${theme.palette.secondary[200]} !important`,
+            typography: theme.typography.h6,
           },
         }}
       >
