@@ -54,10 +54,10 @@ const navItems = [
     text: "Transactions",
     icon: <ReceiptLongOutlined />,
   },
-  // {
-  //   text: "Geography",
-  //   icon: <PublicOutlined />,
-  // },
+  {
+    text: "Geography",
+    icon: <PublicOutlined />,
+  },
   {
     text: "Sales",
     icon: null,
@@ -66,14 +66,14 @@ const navItems = [
     text: "Overview",
     icon: <PointOfSaleOutlined />,
   },
-  // {
-  //   text: "Daily",
-  //   icon: <TodayOutlined />,
-  // },
-  // {
-  //   text: "Monthly",
-  //   icon: <CalendarMonthOutlined />,
-  // },
+  {
+    text: "Daily",
+    icon: <TodayOutlined />,
+  },
+  {
+    text: "Monthly",
+    icon: <CalendarMonthOutlined />,
+  },
   {
     text: "Breakdown",
     icon: <PieChartOutlined />,
