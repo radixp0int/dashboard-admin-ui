@@ -127,7 +127,7 @@ const Sidebar = ({
             },
           }}
         >
-          <Box width="100%">
+          <Box width="100%" paddingBottom={2}>
             <Box m="1.5rem 2rem 2rem 3rem">
               <FlexBetween color={theme.palette.grey.main}>
                 <Box display="flex" alignItems="center" gap="0.5rem">
@@ -206,15 +206,22 @@ const Sidebar = ({
               })}
             </List>
           </Box>
-          <Box position="absolute" bottom="2rem">
+          <Box
+            position={isNonMobile ? "absolute" : ""}
+            bottom={isNonMobile ? "0" : "2rem"}
+          >
             <Divider />
-            <FlexBetween textTransform="none" gap="1rem" m="1.5rem 2rem 0 3rem">
+            <FlexBetween
+              textTransform="none"
+              gap="1rem"
+              m="1.5rem 2rem 1.5rem 3rem"
+            >
               <Box
                 component="img"
                 alt="profile"
                 src={profileImage}
-                height={isNonMobile ? "40px" : "30px"}
-                width={isNonMobile ? "40px" : "30px"}
+                height={isNonMobile ? "40px" : "32px"}
+                width={isNonMobile ? "40px" : "32px"}
                 borderRadius="50%"
                 sx={{ objectFit: "cover" }}
               />
