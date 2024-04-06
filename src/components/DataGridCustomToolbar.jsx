@@ -16,7 +16,6 @@ import FlexBetween from "./FlexBetween";
 
 const DataGridCustomToolbar = ({ searchInput, setSearchInput, setSearch }) => {
   const isMobileScreen = useMediaQuery("(max-width: 768px)");
-  //TODO: Make more mobile friendly
   return (
     <GridToolbarContainer>
       <FlexBetween width="100%">

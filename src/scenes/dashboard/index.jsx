@@ -21,9 +21,32 @@ import OverviewChart from "components/OverviewChart";
 import { useGetDashboardQuery } from "state/api";
 import StatBox from "components/StatBox";
 
-const Dashboard = () => {
+const DownloadButton = () => {
   const theme = useTheme();
   const isLargeScreen = useMediaQuery("(min-width: 1200px)");
+  return (
+    <Box>
+      <Button
+        sx={{
+          color: theme.palette.secondary.light,
+          backgroundColor: theme.palette.background.alt,
+          // color: theme.palette.background.alt,
+          width: isLargeScreen ? "auto" : "100%",
+          fontSize: isLargeScreen ? "12px" : "14px",
+          fontWeight: isLargeScreen ? "bold" : "normal",
+          padding: isLargeScreen ? "10px 20px" : "8px 16px",
+        }}
+      >
+        <DownloadOutlined sx={{ mr: "10px" }} />
+        Download Reports
+      </Button>
+    </Box>
+  );
+};
+
+const Dashboard = () => {
+  const theme = useTheme();
+  const isMobileScreen = useMediaQuery("(max-width: 768px)");
   const { data, isLoading } = useGetDashboardQuery();
 
   const columns = [
@@ -61,23 +84,14 @@ const Dashboard = () => {
     <Box m="1.5rem 2.5rem">
       <FlexBetween>
         <Header title="Dashboard" subtitle="Welcome to your dashboard" />
-
-        <Box>
-          <Button
-            sx={{
-              color: theme.palette.secondary.light,
-              backgroundColor: theme.palette.background.alt,
-              // color: theme.palette.background.alt,
-              fontSize: "14px",
-              fontWeight: "bold",
-              padding: "10px 20px",
-            }}
-          >
-            <DownloadOutlined sx={{ mr: "10px" }} />
-            {isLargeScreen ? `Download Reports` : `Download`}
-          </Button>
-        </Box>
+        {!isMobileScreen && <DownloadButton />}
       </FlexBetween>
+
+      {isMobileScreen && (
+        <Box mt={3}>
+          <DownloadButton />
+        </Box>
+      )}
 
       <Box
         mt="20px"
@@ -86,7 +100,7 @@ const Dashboard = () => {
         gridAutoRows="160px"
         gap="20px"
         sx={{
-          "& > div": { gridColumn: isLargeScreen ? undefined : "span 12" },
+          "& > div": { gridColumn: !isMobileScreen ? undefined : "span 12" },
         }}
       >
         {/* ROW 1 */}
@@ -151,6 +165,7 @@ const Dashboard = () => {
         <Box
           gridColumn="span 8"
           gridRow="span 3"
+          m={"0 0 1rem 0"}
           sx={{
             "& .MuiDataGrid-root": {
               border: "none",
@@ -189,6 +204,7 @@ const Dashboard = () => {
           gridRow="span 3"
           backgroundColor={theme.palette.background.alt}
           p="1.5rem"
+          m={"0 0 1rem 0"}
           borderRadius="0.55rem"
         >
           <Typography variant="h6" sx={{ color: theme.palette.secondary[100] }}>
