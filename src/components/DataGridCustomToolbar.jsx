@@ -1,6 +1,11 @@
 import React from "react";
 import { Search } from "@mui/icons-material";
-import { IconButton, TextField, InputAdornment } from "@mui/material";
+import {
+  IconButton,
+  TextField,
+  InputAdornment,
+  useMediaQuery,
+} from "@mui/material";
 import {
   GridToolbarDensitySelector,
   GridToolbarContainer,
@@ -10,6 +15,8 @@ import {
 import FlexBetween from "./FlexBetween";
 
 const DataGridCustomToolbar = ({ searchInput, setSearchInput, setSearch }) => {
+  const isMobileScreen = useMediaQuery("(max-width: 768px)");
+  //TODO: Make more mobile friendly
   return (
     <GridToolbarContainer>
       <FlexBetween width="100%">

@@ -114,11 +114,12 @@ const Sidebar = ({
           open={isSidebarOpen}
           onClose={() => setIsSidebarOpen(false)}
           variant="persistent"
+          id="sidebar-drawer"
           anchor="left"
           sx={{
             width: drawerWidth,
             "& .MuiDrawer-paper": {
-              color: theme.palette.secondary[200],
+              color: theme.palette.secondary[100],
               backgroundColor: theme.palette.background.default,
               boxSizing: "border-box",
               borderWidth: isNonMobile ? 0 : "2px",
@@ -128,7 +129,7 @@ const Sidebar = ({
         >
           <Box width="100%">
             <Box m="1.5rem 2rem 2rem 3rem">
-              <FlexBetween color={theme.palette.secondary.main}>
+              <FlexBetween color={theme.palette.grey.main}>
                 <Box display="flex" alignItems="center" gap="0.5rem">
                   <Typography variant="h4" fontWeight="bold">
                     AERDN
@@ -153,20 +154,34 @@ const Sidebar = ({
                 const lcText = text.toLowerCase();
 
                 return (
-                  <ListItem key={text} disablePadding>
+                  <ListItem
+                    key={text}
+                    id={`list-item-${text.toLowerCase()}`}
+                    disablePadding
+                    sx={{
+                      "&:hover": {
+                        borderRadius: "0 4px 4px 0",
+                        backgroundColor: theme.palette.secondary[100],
+                        "& .MuiListItemButton-root, & .MuiListItemIcon-root": {
+                          color: theme.palette.primary[600],
+                        },
+                      },
+                    }}
+                  >
                     <ListItemButton
                       onClick={() => {
                         navigate(`/${lcText}`);
                         setActive(lcText);
                       }}
                       sx={{
+                        borderRadius: "0 4px 4px 0",
                         backgroundColor:
                           active === lcText
-                            ? theme.palette.secondary[300]
+                            ? theme.palette.secondary[500]
                             : "transparent",
                         color:
                           active === lcText
-                            ? theme.palette.primary[600]
+                            ? theme.palette.primary[700]
                             : theme.palette.secondary[100],
                       }}
                     >
@@ -198,8 +213,8 @@ const Sidebar = ({
                 component="img"
                 alt="profile"
                 src={profileImage}
-                height="40px"
-                width="40px"
+                height={isNonMobile ? "40px" : "30px"}
+                width={isNonMobile ? "40px" : "30px"}
                 borderRadius="50%"
                 sx={{ objectFit: "cover" }}
               />

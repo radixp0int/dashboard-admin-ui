@@ -27,7 +27,6 @@ function App() {
           <CssBaseline />
           <Routes>
             <Route element={<Layout />}>
-              {/* <Route path="*" element={<NotFound />} /> */}
               <Route path="/" element={<Navigate to="/dashboard" replace />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/products" element={<Products />} />
@@ -40,6 +39,8 @@ function App() {
               <Route path="/breakdown" element={<Breakdown />} />
               <Route path="/admin" element={<Admin />} />
               <Route path="/performance" element={<Performance />} />
+              {/* <Route path="*" element={<NotFound />} /> */}
+              <Route path="*" element={<Navigate to="/dashboard" replace />} />
             </Route>
           </Routes>
         </ThemeProvider>
