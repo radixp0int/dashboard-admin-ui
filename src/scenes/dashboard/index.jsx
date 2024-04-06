@@ -23,7 +23,7 @@ import StatBox from "components/StatBox";
 
 const Dashboard = () => {
   const theme = useTheme();
-  const isNonMediumScreens = useMediaQuery("(min-width: 1200px)");
+  const isLargeScreen = useMediaQuery("(min-width: 1200px)");
   const { data, isLoading } = useGetDashboardQuery();
 
   const columns = [
@@ -60,7 +60,7 @@ const Dashboard = () => {
   return (
     <Box m="1.5rem 2.5rem">
       <FlexBetween>
-        <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
+        <Header title="Dashboard" subtitle="Welcome to your dashboard" />
 
         <Box>
           <Button
@@ -74,7 +74,7 @@ const Dashboard = () => {
             }}
           >
             <DownloadOutlined sx={{ mr: "10px" }} />
-            Download Reports
+            {isLargeScreen ? `Download Reports` : `Download`}
           </Button>
         </Box>
       </FlexBetween>
@@ -86,7 +86,7 @@ const Dashboard = () => {
         gridAutoRows="160px"
         gap="20px"
         sx={{
-          "& > div": { gridColumn: isNonMediumScreens ? undefined : "span 12" },
+          "& > div": { gridColumn: isLargeScreen ? undefined : "span 12" },
         }}
       >
         {/* ROW 1 */}
