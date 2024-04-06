@@ -57,7 +57,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
           <FlexBetween
             backgroundColor={theme.palette.background.alt}
             borderRadius="9px"
-            gap="3rem"
+            gap={isMobileScreen ? "0" : "3rem"}
             p="0.1rem 0.5rem 0.1rem 1.5rem"
           >
             <InputBase placeholder="Search..." />

@@ -25,12 +25,37 @@ const DataGridCustomToolbar = ({ searchInput, setSearchInput, setSearch }) => {
           <GridToolbarDensitySelector />
           <GridToolbarExport />
         </FlexBetween>
+        {!isMobileScreen ? (
+          <TextField
+            label="Search..."
+            sx={{ mb: "0.5rem", width: "15rem" }}
+            onChange={(e) => setSearchInput(e.target.value)}
+            value={searchInput}
+            variant="outlined"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    onClick={() => {
+                      setSearch(searchInput);
+                      setSearchInput("");
+                    }}
+                  >
+                    <Search />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+          />
+        ) : null}
+      </FlexBetween>
+      {isMobileScreen && (
         <TextField
           label="Search..."
-          sx={{ mb: "0.5rem", width: "15rem" }}
+          sx={{ mb: "0.5rem", width: "100%" }}
           onChange={(e) => setSearchInput(e.target.value)}
           value={searchInput}
-          variant="filled"
+          variant="outlined"
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
@@ -46,7 +71,7 @@ const DataGridCustomToolbar = ({ searchInput, setSearchInput, setSearch }) => {
             ),
           }}
         />
-      </FlexBetween>
+      )}
     </GridToolbarContainer>
   );
 };
